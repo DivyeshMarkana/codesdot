@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1> Read posts </h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="todo">
+        <div class="row">
+            <div class="col-10">
+                <input type="text" class="form-control" name="task" placeholder="Add new post" #taskInput
+                    (keyup.enter)="addTask(taskInput)">
+            </div>
+
+            <div class="col-2">
+                <button class="btn btn-info form-control" type="submit" (click)="addTask(taskInput) ">Add</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <mat-form-field appearance="fill">
+                    <mat-label>Search here</mat-label>
+                    <input matInput type="text" [(ngModel)]="searchKey" (keyup)="search($event)">
+                </mat-form-field>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>All posts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngIf="posts.length !== 0; else showPreview">
+                            <tr *ngFor="let post of posts| search: searchKey ">
+
+                                <!-- <ng-container *ngIf="!editMode"> -->
+                                <td class="taskTitle"> {{post.title}}</td>
+                                <!-- </ng-container> -->
+                                <!-- 
+                                <ng-container *ngIf="editMode">
+                                    <input type="text" value="{{post.title}}">
+                                </ng-container> -->
+
+                                <td class="col-md-1">
+                                    <button type="button" class="btn task_btn btn-primary btn-sm form-control"
+                                        (click)="editTask(post)"> <i class="bi bi-pencil-fill"></i></button>
+                                </td>
+
+                                <!-- <td class="col-md-1">
+                                    <button type="button" class="btn task_btn  btn-warning btn-sm form-control"
+                                        type="button" (click)="cancleTask(idx)"> <i class="bi bi-x-lg"></i> </button>
+                                </td> -->
+
+                                <td class="col-md-1">
+                                    <button type="button" class="btn task_btn btn-danger btn-sm form-control"
+                                        type="button" (click)="deletePost(post)"> <i class="bi bi-trash3-fill"></i>
+                                    </button>
+                                </td>
+
+                            </tr>
+                        </ng-container>
+
+                        <ng-template #showPreview>
+                            <h5 class="text-center">Add new task</h5>
+                        </ng-template>
+
+                    </tbody>
+                    <tfoot>
+                        <!-- <tr>
+                            <button class="btn btn-outline-danger mt-2 form-control w-100" type="button"
+                                (click)="clearToDo()">Clear All</button>
+                        </tr> -->
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

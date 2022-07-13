@@ -1,0 +1,91 @@
+.loginBox {
+    width           : 320px;
+    height          : 420px;
+    background-color: #000;
+    color           : #fff;
+    top             : 50%;
+    left            : 50%;
+    position        : absolute;
+    transform       : translate(-50%, -50%);
+    box-sizing      : border-box;
+    padding         : 70px 30px;
+    border-radius   : 8px;
+
+    h1 {
+        margin    : 0;
+        padding   : 0 0 20px;
+        text-align: center;
+        font-size : 22px;
+    }
+
+    & p {
+        margin     : 0;
+        padding    : 0;
+        font-weight: bold;
+
+    }
+
+    form {
+        // position: relative;
+
+        input {
+            margin-bottom: 20px;
+            color        : #fff;
+        }
+
+        input:where([type="email"], [type="password"]) {
+            width        : 100%;
+            border       : none;
+            border-bottom: 1px solid #fff;
+            background   : transparent;
+            outline      : none;
+            height       : 40px;
+
+
+        }
+
+        input:where([type="submit"]) {
+            width           : 100%;
+            background-color: #fff;
+            padding         : .3rem 1rem;
+            color           : #000;
+            border          : none;
+            border-radius   : 8px;
+        }
+
+        p:last-child {
+            font-weight: normal;
+            font-size  : 13px;
+            position   : absolute;
+            bottom     : 20px;
+            left       : 35%;
+        }
+
+        input:disabled {
+            background-color: gray;
+        }
+    }
+
+}
+
+// mat-checkbox {
+//     background: blue;
+// }
+
+// .loginform {
+//     width              : 100vw;
+//     height             : 50vw;
+//     display            : flex;
+//     justify-content    : center;
+//     align-items        : center;
+//     // // display      : grid;
+//     // // place-content: center;
+//     // position        : absolute;
+//     // top             : 50%;
+//     // left            : 50%;
+//     // transform       : translate(-50%, -50%);
+// }
+
+// form {
+//     width: 300px;
+// }
